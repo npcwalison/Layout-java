@@ -43,4 +43,10 @@ public class Task {
     public Date getDate() {
         return date;
     }
+
+
+    public long size() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'size'");
+    }
 }
