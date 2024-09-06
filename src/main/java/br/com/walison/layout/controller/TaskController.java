@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.walison.layout.model.Task;
 
@@ -28,6 +29,17 @@ public class TaskController {
         Long id = tasks.size() + 1L;
         tasks.add(new Task(id, task.getName(), task.getDate()));
 
-        return "view";
+        // Redirecinando pagina para view
+        return "redirect:/view";
+    }
+
+    @GetMapping("/view")
+    public ModelAndView view() {
+
+        // faz o mapeamento entre os objetos no java para os objetos no html
+        ModelAndView mv = new ModelAndView("view");
+        mv.addObject("tasks", tasks);
+
+        return mv;
     }
 }
